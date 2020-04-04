@@ -1,9 +1,8 @@
 {
-  "name": "todo",
+  "name": "todo-frontend",
   "version": "1.0.0",
-  "description": "Basic Todo Frontend",
+  "description": "NuxtJS Frontend for basic todo application",
   "author": "Nazmul Alam",
-  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
