@@ -1,6 +1,10 @@
 # todo-frontend
 > NuxtJS Frontend for basic todo application
 
+## Tech Overview
+This project is built with [NuxtJS](https://nuxtjs.org/) and uses [Vuetify](https://vuetifyjs.com/) ui library. All api requests are handled via [Axios](https://github.com/axios/axios).
+This is a PWA meaning ready to be installed in most places where Chrome browser is supported(Windows, linux etc). Advanced PWA features like Offline Editing and Syncing is not implemented yet.
+
 ## Setup
 1. Deploy [Backend](https://github.com/nazmulpcc/todo-backend)
 2. Copy the `.env.example` file to `.env`
@@ -21,5 +25,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
