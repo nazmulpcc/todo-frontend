@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NuxtJS Frontend for basic todo application",
   "author": "Nazmul Alam",
+  "license": "MIT",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
