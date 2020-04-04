@@ -129,7 +129,7 @@
 
 <style>
   .big-text {
-    font-size: 1.8em;
+    font-size: 1.8em !important;
     font-weight: 300;
   }
   .bordered {
