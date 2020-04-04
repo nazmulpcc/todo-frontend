@@ -1,7 +1,7 @@
 {
-  "name": "ui-basic",
+  "name": "todo",
   "version": "1.0.0",
-  "description": "Vue UI basic scaffolding",
+  "description": "Basic Todo Frontend",
   "author": "Nazmul Alam",
   "private": true,
   "scripts": {

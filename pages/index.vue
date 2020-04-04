@@ -10,7 +10,7 @@
         />
       </v-form>
       <v-card>
-        <v-card-text>
+        <v-card-text class="task-list" ref="taskList">
           <v-list>
             <template v-for="task in filtered">
               <task :task="task"/>
@@ -50,6 +50,9 @@
 
   export default {
   components: { Task },
+  head:{
+    title: 'Manage Tasks'
+  },
   data(){
     return {
       task: '',
@@ -73,8 +76,10 @@
       this.task = ''
       this.tasks.push({
         id: Math.floor(Math.random() * 100000000),
+        complete: false,
         body
       })
+      console.log(this.$refs.taskList)
       this.$axios.post('/task', { body })
         .then(({data}) => {
           this.$toast.success(data.message)
@@ -114,5 +119,10 @@
   }
   .bordered {
     border: 1px solid gray;
+  }
+  .task-list {
+    max-height: 55vh;
+    overflow-y: auto;
+    overflow-x: auto;
   }
 </style>

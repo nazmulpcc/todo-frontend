@@ -16,7 +16,7 @@
         <v-form @submit.prevent="updateTask">
           <v-text-field
             class="big-text"
-            v-model="task.body"
+            v-model="newBody"
             @blur="updateTask"
             autofocus
           />
@@ -36,7 +36,8 @@
     },
     data(){
       return {
-        editing: false
+        editing: false,
+        newBody: this.task.body
       }
     },
     methods: {
@@ -52,11 +53,15 @@
         })
       },
       updateTask(){
+        this.editing = false
+        if(this.newBody === this.task.body){
+          return;
+        }
+        this.task.body = this.newBody
         this.update({
           body: this.task.body
         }).then(response => {
           this.$toast.success(response.data.message)
-          this.editing = false
         })
       },
       update(data){
