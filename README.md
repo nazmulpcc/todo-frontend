@@ -1,9 +1,12 @@
-# ui-basic
+# todo-frontend
+> NuxtJS Frontend for basic todo application
 
-> Vue UI basic scaffolding
+## Setup
+1. Deploy [Backend](https://github.com/nazmulpcc/todo-backend)
+2. Copy the `.env.example` file to `.env`
+3. Update the `API_BASE` value with the backend url.
 
-## Build Setup
-
+## Build and Run
 ``` bash
 # install dependencies
 $ yarn install
