@@ -7,10 +7,9 @@
     </v-list-item-avatar>
     <v-list-item-content>
       <template v-if="!editing">
-        <v-list-item-title class="big-text" @click="editing = true">
+        <v-list-item-title class="big-text" @click="task.temporary || (editing = true)">
           <span :class="{completed: task.complete}" v-text="task.body"></span>
         </v-list-item-title>
-        <v-list-item-subtitle v-html="task.created"></v-list-item-subtitle>
       </template>
       <template v-else>
         <v-form @submit.prevent="updateTask">
@@ -42,14 +41,14 @@
     },
     methods: {
       complete(){
-        if(this.task.complete){
+        if(this.task.complete || this.task.temporary){
           return
         }
+        this.task.complete = true
         this.update({
           complete: 1
         }).then(response => {
           this.$toast.success(response.data.message)
-          this.task.complete = true
         })
       },
       updateTask(){

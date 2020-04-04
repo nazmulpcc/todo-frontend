@@ -10,7 +10,7 @@
         />
       </v-form>
       <v-card>
-        <v-card-text class="task-list" ref="taskList">
+        <v-card-text class="task-list">
           <v-list>
             <template v-for="task in filtered">
               <task :task="task"/>
@@ -22,6 +22,7 @@
         </v-card-text>
         <v-divider/>
         <v-card-actions>
+          <span>{{ incompleteCount }} task(s) left</span>
           <v-btn text color="red" v-show="complete" @click="clearCompleted">Clear</v-btn>
           <v-spacer/>
           <v-btn
@@ -68,23 +69,37 @@
         }
         return this.complete === task.complete
       })
+    },
+    incompleteCount(){
+      let count = 0
+      this.tasks.map(task => {
+        count += Number(task.complete === false)
+      })
+      return count
     }
   },
   methods: {
     createTask(){
       let body = this.task + ''
+      let count = this.tasks.length
       this.task = ''
+      // insert a temporary task, before sending data to server
+      // this way, user gets a feedback very fast
       this.tasks.push({
-        id: Math.floor(Math.random() * 100000000),
+        id: Math.floor(Math.random() * 100000) + "-temp",
+        temporary: true,
         complete: false,
         body
       })
-      console.log(this.$refs.taskList)
       this.$axios.post('/task', { body })
         .then(({data}) => {
           this.$toast.success(data.message)
           this.tasks.pop()
-          this.tasks.push(data.data)
+          this.tasks.push(data.data) // replace the virtual task with the actual one
+        })
+        .catch(err => {
+          this.tasks.splice(count, 1)
+          this.$toast.failed("Failed to add task")
         })
     },
     clearCompleted(){
@@ -119,10 +134,5 @@
   }
   .bordered {
     border: 1px solid gray;
-  }
-  .task-list {
-    max-height: 55vh;
-    overflow-y: auto;
-    overflow-x: auto;
   }
 </style>
