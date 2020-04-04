@@ -16,6 +16,9 @@
               <task :task="task"/>
             </template>
           </v-list>
+          <div v-show="filtered.length === 0" class="grey--text big-text">
+            Nothing to see here yet!
+          </div>
         </v-card-text>
         <v-divider/>
         <v-card-actions>
