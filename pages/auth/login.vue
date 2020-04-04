@@ -28,9 +28,6 @@
             <v-col>
               <nuxt-link to="/auth/register">Don't have an account?</nuxt-link>
             </v-col>
-            <v-col cols="auto">
-              <nuxt-link to="/auth/forgot">Forgot Password?</nuxt-link>
-            </v-col>
           </v-row>
 
           <v-row>

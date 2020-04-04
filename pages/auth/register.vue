@@ -39,9 +39,6 @@
           <v-col>
             <nuxt-link to="/auth/login">Already have an account?</nuxt-link>
           </v-col>
-          <v-col cols="auto">
-            <nuxt-link to="/auth/forgot">Forgot Password?</nuxt-link>
-          </v-col>
         </v-row>
 
         <v-row>
