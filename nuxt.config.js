@@ -70,7 +70,6 @@ export default {
     }
   },
   router: {
-    middleware: ['auth']
   },
   /*
   ** vuetify module configuration
